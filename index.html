@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Promedio de Curso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Promedio de Curso</h1>
+    <form id="formPromedio">
+        <div>
+            <h2>Periodo 1</h2>
+            <label for="evalContinua1">Nota Evaluación Continua:</label>
+            <input type="number" id="evalContinua1" step="0.01" min="0" max="10">
+            <label for="porcentajeContinua1">Porcentaje Evaluación Continua (%):</label>
+            <input type="number" id="porcentajeContinua1" step="0.01" min="0" max="100">
+            <label for="parcial1">Nota Parcial:</label>
+            <input type="number" id="parcial1" step="0.01" min="0" max="10">
+            <label for="porcentajeParcial1">Porcentaje Parcial (%):</label>
+            <input type="number" id="porcentajeParcial1" step="0.01" min="0" max="100">
+        </div>
+        <div>
+            <h2>Periodo 2</h2>
+            <label for="evalContinua2">Nota Evaluación Continua:</label>
+            <input type="number" id="evalContinua2" step="0.01" min="0" max="10">
+            <label for="porcentajeContinua2">Porcentaje Evaluación Continua (%):</label>
+            <input type="number" id="porcentajeContinua2" step="0.01" min="0" max="100">
+            <label for="parcial2">Nota Parcial:</label>
+            <input type="number" id="parcial2" step="0.01" min="0" max="10">
+            <label for="porcentajeParcial2">Porcentaje Parcial (%):</label>
+            <input type="number" id="porcentajeParcial2" step="0.01" min="0" max="100">
+        </div>
+        <div>
+            <h2>Periodo 3</h2>
+            <label for="evalContinua3">Nota Evaluación Continua:</label>
+            <input type="number" id="evalContinua3" step="0.01" min="0" max="10">
+            <label for="porcentajeContinua3">Porcentaje Evaluación Continua (%):</label>
+            <input type="number" id="porcentajeContinua3" step="0.01" min="0" max="100">
+            <label for="parcial3">Nota Parcial:</label>
+            <input type="number" id="parcial3" step="0.01" min="0" max="10">
+            <label for="porcentajeParcial3">Porcentaje Parcial (%):</label>
+            <input type="number" id="porcentajeParcial3" step="0.01" min="0" max="100">
+        </div>
+        <button type="button" onclick="calcularPromedio()">Calcular Promedio</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularPromedio() {
+            const evalContinua1 = parseFloat(document.getElementById('evalContinua1').value);
+            const porcentajeContinua1 = parseFloat(document.getElementById('porcentajeContinua1').value);
+            const parcial1 = parseFloat(document.getElementById('parcial1').value);
+            const porcentajeParcial1 = parseFloat(document.getElementById('porcentajeParcial1').value);
+
+            const evalContinua2 = parseFloat(document.getElementById('evalContinua2').value);
+            const porcentajeContinua2 = parseFloat(document.getElementById('porcentajeContinua2').value);
+            const parcial2 = parseFloat(document.getElementById('parcial2').value);
+            const porcentajeParcial2 = parseFloat(document.getElementById('porcentajeParcial2').value);
+
+            const evalContinua3 = parseFloat(document.getElementById('evalContinua3').value);
+            const porcentajeContinua3 = parseFloat(document.getElementById('porcentajeContinua3').value);
+            const parcial3 = parseFloat(document.getElementById('parcial3').value);
+            const porcentajeParcial3 = parseFloat(document.getElementById('porcentajeParcial3').value);
+
+            const promedio = ((evalContinua1 * porcentajeContinua1) + 
+                              (evalContinua2 * porcentajeContinua2) + 
+                              (evalContinua3 * porcentajeContinua3) + 
+                              (parcial1 * porcentajeParcial1) + 
+                              (parcial2 * porcentajeParcial2) + 
+                              (parcial3 * porcentajeParcial3)) / 100.0;
+
+
+            document.getElementById('resultado').innerText = `Promedio del curso: ${promedio.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
